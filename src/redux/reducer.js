@@ -28,6 +28,14 @@ export default (state = initialState, action) => {
         authors:[...state.authors,newAuthor],
         newAuthorId: state.newAuthorId + 1
       }
+
+      case 'DELETE_AUTHOR':
+        return {
+          ...state,
+          authors:state.authors.filter(author => author.id !== action.author.id),
+        }
+
+
     default:
       return {
         ...state,
